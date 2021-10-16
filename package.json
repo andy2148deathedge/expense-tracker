@@ -4,6 +4,9 @@
   "description": "AC 老爸私房錢(記帳手札) 專案",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "seed": "node models/seeds/categorySeeders.js && node models/seeds/recordSeeders.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
