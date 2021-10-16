@@ -24,12 +24,13 @@ app.get('/', (req, res) => {
     .lean()
     .sort({ _id: 'asc' })
     .then((records) => {
-      res.render('index', { records });
+      let totalAmount = 0;
+      records.forEach((record) => { totalAmount += record.amount; })
+
+      res.render('index', { records, totalAmount });
     })
     .catch(e => console(e));
 });
-
-// app.get('/test', (re))
 
 // Server listen
 app.listen(PORT, () => {

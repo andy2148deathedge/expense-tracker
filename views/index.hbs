@@ -1,6 +1,8 @@
 <h3>
-  這是首頁,帳目有這些:
+  總金額{{ totalAmount }}帳目有以下這些:
 </h3>
+
+<hr>
 
 <div>
   {{#each records}}
@@ -9,7 +11,13 @@
     <p>分類:{{this.category}}</p>
     <p>時間:{{this.date}}</p>
     <p>金額:{{this.amount}}</p>
+    <a href="">編輯這項帳目</a>
+    <a href="">刪除這項帳目</a>
     <hr>
   </div>
   {{/each}}
+
+  <a href="/new">
+    <button type="submit">新增一筆支出</button>
+  </a>
 </div>
