@@ -11,7 +11,7 @@ const recordSchema = new Schema({
     required: true,
   },
   date: {
-    type: Date, // special type for mongoose
+    type: String, // Date is special type for mongoose, temporary use String 
     required: true,
   },
   amount: {
@@ -21,6 +21,6 @@ const recordSchema = new Schema({
 });
 
 // setting special type for mongoose for MongoDB
-recordSchema.path('date') instanceof mongoose.Date;
+// recordSchema.path('date') instanceof mongoose.Date;
 
 module.exports = mongoose.model('Record', recordSchema);
