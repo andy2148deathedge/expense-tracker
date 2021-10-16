@@ -1,0 +1,28 @@
+<div>
+  <P>*必填欄位</P>
+  <h4>請輸入你的支出: </h4>
+  <form action="/record" method="post">
+    <div style="display: block;">
+      <label for="name">名稱*:</label>
+      <input type="text" name="name" required>
+    </div>
+    <div style="display: block;"></div>
+      <label for="date">日期*:</label>
+      <input type="date" name="date" required>
+    </div>
+    <div style="display: block;">
+      <label for="category">類別*:</label>
+      <select name="category" required>
+        {{#each categories}}
+        <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div style="display: block;">
+      <label for="amount">金額*:</label>
+      <input type="Number" name="amount" required>
+    </div>
+    
+    <button type="submit">新增支出</button>
+  </form>
+</div>

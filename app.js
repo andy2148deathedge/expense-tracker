@@ -1,10 +1,11 @@
 // import library
 const express = require('express');
 const exphbs = require('express-handlebars');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 // import self made library
 const Record = require('./models/record');
+const Category = require('./models/category');
 
 // DB connect
 require('./config/mongoose');
@@ -31,6 +32,22 @@ app.get('/', (req, res) => {
     })
     .catch(e => console(e));
 });
+
+app.get('/new', (req, res) => {
+  Category.find()
+    .lean()
+    .sort({ _id: 'asc' })
+    .then((categories) => {
+      res.render('new', {categories});
+    })
+    .catch(e => console(e));
+});
+
+app.post('/record', (req, res) => {
+  // 拿到 new 表單內容存入資料庫 並且重定向至 '/'
+  res.send('new表單送出了');
+});
+
 
 // Server listen
 app.listen(PORT, () => {
