@@ -1,3 +1,15 @@
+<form action="/" method="get">
+  <select name="category" onchange="submit()">
+    <option value="">請選擇類別</option>
+    <option value="all">全部</option>
+    {{#each categories}}
+    <option value="{{this.name}}" 
+     {{#is ../selectedCategory this.name}} selected {{/is}}
+    > {{this.name}} </option>
+    {{/each}}
+  </select>
+</form>
+
 <h3>
   總金額{{ totalAmount }}，帳目有以下這些:
 </h3>

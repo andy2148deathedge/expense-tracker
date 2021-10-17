@@ -13,9 +13,11 @@
     <div style="display: block;">
       <label for="category">類別*:</label>
       <select name="category" required>
-        <option value="{{record.category}}" selected> {{record.category}} </option>
+        <option value="">請選擇類別</option>
         {{#each categories}}
-        <option value="{{this.name}}">{{this.name}} </option>
+        <option value="{{this.name}}" 
+          {{#is ../record.category this.name}} selected {{/is}} 
+        >{{this.name}} </option>
         {{/each}}
       </select>
     </div>
