@@ -73,8 +73,15 @@ app.put('/record/:id', (req, res) => {
   const id = req.params.id;
   let newRecord = req.body;
   newRecord.amount = Number(newRecord.amount);
-  
+
   return Record.updateOne({ _id: id }, newRecord)
+    .then(() => res.redirect('/'))
+    .catch(e => console.log(e));
+});
+
+app.delete('/record/:id', (req, res) => {
+  const id = req.params.id;
+  return Record.deleteOne({ _id: id })
     .then(() => res.redirect('/'))
     .catch(e => console.log(e));
 });

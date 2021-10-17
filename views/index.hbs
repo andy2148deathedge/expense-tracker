@@ -12,7 +12,9 @@
     <p>時間:{{this.date}}</p>
     <p>金額:{{this.amount}}</p>
     <a href="/record/{{this._id}}/edit">編輯這項帳目</a>
-    <a href="/record/:id?_method=DELETE">刪除這項帳目</a>
+    <form action="/record/{{this._id}}?_method=DELETE" method="post" style="display: inline;">
+      <button type="submit">刪除這項帳目</button>
+    </form>
     <hr>
   </div>
   {{/each}}
