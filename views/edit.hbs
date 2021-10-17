@@ -1,0 +1,29 @@
+<div>
+  <P>*必填欄位</P>
+  <h4>請編輯這筆支出: </h4>
+  <form action="/record/{{record._id}}?_method=PUT" method="post">
+    <div style="display: block;">
+      <label for="name">名稱*:</label>
+      <input type="text" name="name" value="{{record.name}}" required>
+    </div>
+    <div style="display: block;"></div>
+      <label for="date">日期*:</label>
+      <input type="date" name="date" value="{{record.date}}" required>
+    </div>
+    <div style="display: block;">
+      <label for="category">類別*:</label>
+      <select name="category" required>
+        <option value="{{record.category}}" selected> {{record.category}} </option>
+        {{#each categories}}
+        <option value="{{this.name}}">{{this.name}} </option>
+        {{/each}}
+      </select>
+    </div>
+    <div style="display: block;">
+      <label for="amount">金額*:</label>
+      <input type="Number" name="amount" value="{{record.amount}}" required>
+    </div>
+    
+    <button type="submit">編輯完成</button>
+  </form>
+</div>

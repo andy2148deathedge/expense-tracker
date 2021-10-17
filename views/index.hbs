@@ -11,8 +11,8 @@
     <p>分類:{{this.category}}</p>
     <p>時間:{{this.date}}</p>
     <p>金額:{{this.amount}}</p>
-    <a href="">編輯這項帳目</a>
-    <a href="">刪除這項帳目</a>
+    <a href="/record/{{this._id}}/edit">編輯這項帳目</a>
+    <a href="/record/:id?_method=DELETE">刪除這項帳目</a>
     <hr>
   </div>
   {{/each}}
