@@ -19,7 +19,10 @@
 <div>
   {{#each records}}
   <div>
-    <h5>{{this.name}}</h5>
+    {{#each ../categories}}
+      {{#is this.name ../this.category}}<i class="{{this.icon}}"></i>{{/is}}
+    {{/each}}
+    <h5 style="display: inline-block;">{{this.name}}</h5>
     <p>分類:{{this.category}}</p>
     <p>時間:{{this.date}}</p>
     <p>金額:{{this.amount}}</p>
