@@ -1,40 +1,67 @@
-<form action="/" method="get">
-  <select name="category" onchange="submit()">
-    <option value="">請選擇類別</option>
-    <option value="all">全部</option>
-    {{#each categories}}
-    <option value="{{this.name}}" 
-     {{#is ../selectedCategory this.name}} selected {{/is}}
-    > {{this.name}} </option>
-    {{/each}}
-  </select>
-</form>
-
-<h3>
-  總金額{{ totalAmount }}，帳目有以下這些:
-</h3>
-
-<hr>
-
-<div>
-  {{#each records}}
-  <div>
-    {{#each ../categories}}
-      {{#is this.name ../this.category}}<i class="{{this.icon}}"></i>{{/is}}
-    {{/each}}
-    <h5 style="display: inline-block;">{{this.name}}</h5>
-    <p>分類:{{this.category}}</p>
-    <p>時間:{{this.date}}</p>
-    <p>金額:{{this.amount}}</p>
-    <a href="/record/{{this._id}}/edit">編輯這項帳目</a>
-    <form action="/record/{{this._id}}?_method=DELETE" method="post" style="display: inline;">
-      <button type="submit">刪除這項帳目</button>
+<section class="font-weight-bold">
+<div class="row" style="padding: 1rem; margin-top:2rem;">
+  <div class="col-md-5 offset-md-3">
+    <form action="/" method="get">
+      <select class="form-control font-weight-bold" name="category" onchange="submit()">
+      <option class="font-weight-bold" value="">請選擇類別...</option>
+      <option class="font-weight-bold" value="all">全部</option>
+      {{#each categories}}
+      <option class="font-weight-bold" value="{{this.name}}" 
+      {{#is ../selectedCategory this.name}} selected {{/is}}
+      > {{this.name}} </option>
+      {{/each}}
+    </select>
     </form>
-    <hr>
   </div>
-  {{/each}}
+</div>
 
-  <a href="/record/new">
-    <button type="submit">新增一筆支出</button>
+<div class="row" style="padding: 2rem;" >
+  <div class="col-md-5 offset-md-3 d-flex">
+    <div style="width: 50%;">
+      <h3 style="font-size: 3rem;">總金額:</h3>
+    </div>
+    <div style="width: 50%; height: 7rem;" class="d-flex align-items-end flex-column">
+      <h1 class="mt-auto p-2" style="margin: 0; font-size: 3rem; color:coral;">${{ totalAmount }}</h1>
+    </div>
+  </div>
+</div>
+
+{{#each records}}
+<div class="row" style="padding: 0.3rem;">
+  <div class="col-md-5 offset-md-3 d-flex justify-content-between align-items-center rounded-bottom" style="box-shadow:darkgray 0 7px 6px -5px;">
+      <div class="d-flex align-items-center">
+        <div class="d-flex-column justify-content-center align-items-center" style="padding: 0.7em; color:cadetblue; font-size:2.5rem;">
+        {{#each ../categories}}
+          {{#is this.name ../this.category}}
+          <i class="{{this.icon}}"></i>
+          {{/is}}
+        {{/each}}
+        </div>
+        <div class="d-flex flex-column justify-content-between">
+          <h3 class="m-1">{{this.name}}</h3>
+          <p class="m-1">{{this.date}}</p>
+        </div>
+      </div>
+    <div>
+      <h4 class="mr-5" style="color: rgb(111, 111, 196);">${{this.amount}}</h4>
+    </div>
+  </div>
+
+  <div class="col-md-1 offset-md-1 d-flex justify-content-between align-items-center">
+    <a class="btn btn-info" href="/record/{{this._id}}/edit">修改</a>
+  </div>
+
+  <div class="col-md-1 d-flex justify-content-between align-items-center">
+    <form action="/record/{{this._id}}?_method=DELETE" method="post" style="display: inline;">
+      <button class="btn btn-danger" type="submit">刪除</button>
+    </form>
+  </div>
+</div>
+{{/each}}
+
+<div class="row col-md-5 offset-md-3 d-flex justify-content-center align-items-center" style="padding: 0.5rem; margin-top:3rem; margin-bottom:4rem">
+  <a href="/record/new" style="width: 50%;">
+    <button class="btn btn-primary" type="submit" style="width: 100%;">新增支出</button>
   </a>
 </div>
+</section>

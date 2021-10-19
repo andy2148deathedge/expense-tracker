@@ -25,8 +25,8 @@ app.use(methodOverride('_method'));
 // routing
 app.use(routes);
 
-app.get('/testedit', (req, res) => {
-  res.render('testeditpage')
+app.get('/testindex', (req, res) => {
+  res.render('testindex')
 });
 
 // Server listen

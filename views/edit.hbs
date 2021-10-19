@@ -1,31 +1,56 @@
-<div>
-  <P>*必填欄位</P>
-  <h4>請編輯這筆支出: </h4>
-  <form action="/record/{{record._id}}?_method=PUT" method="post">
-    <div style="display: block;">
-      <label for="name">名稱*:</label>
-      <input type="text" name="name" value="{{record.name}}" required>
+<form action="/record/{{record._id}}?_method=PUT" method="post">
+  <div class="form-group font-weight-bold" style="margin: 3rem;">
+    <div class="row" style="padding: 1rem;">
+      <div class="col-md-2 offset-md-2">*必要欄位</div>
+      <div class="col-md-4 d-flex justify-content-center align-items-center" >請輸入你的支出</div>
     </div>
-    <div style="display: block;"></div>
-      <label for="date">日期*:</label>
-      <input type="date" name="date" value="{{record.date}}" required>
+
+    <div class="row" style="padding: 2rem;">
+      <div class="col-md-2 offset-md-2 d-flex justify-content-center align-items-center">
+        <label for="name">名稱*:</label>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center align-items-center" >
+        <input class="form-control" type="text" name="name" value="{{record.name}}" required>
+      </div>
     </div>
-    <div style="display: block;">
-      <label for="category">類別*:</label>
-      <select name="category" required>
-        <option value="">請選擇類別</option>
-        {{#each categories}}
-        <option value="{{this.name}}" 
-          {{#is ../record.category this.name}} selected {{/is}} 
-        >{{this.name}} </option>
-        {{/each}}
-      </select>
+
+    <div class="row" style="padding: 2rem;">
+      <div class="col-md-2 offset-md-2 d-flex justify-content-center align-items-center">
+        <label for="date">日期*:</label>
+      </div>
+      <div class="col-md-4 text-center" >
+        <input class="form-control" type="date" name="date" value="{{record.date}}" required>
+      </div>
     </div>
-    <div style="display: block;">
-      <label for="amount">金額*:</label>
-      <input type="Number" name="amount" value="{{record.amount}}" required>
+
+    <div class="row" style="padding: 2rem;">
+      <div class="col-md-2 offset-md-2 d-flex justify-content-center align-items-center">
+        <label for="category">類別*:</label>
+      </div>
+      <div class="col-md-4 text-center" >
+        <select class="form-control" name="category" required>
+          <option value="">請選擇類別</option>
+          {{#each categories}}
+          <option value="{{this.name}}" 
+            {{#is ../record.category this.name}} selected {{/is}} 
+          >{{this.name}} </option>
+          {{/each}}
+        </select>
+      </div>
     </div>
-    
-    <button type="submit">修改完成</button>
-  </form>
-</div>
+
+    <div class="row" style="padding: 2rem;">
+      <div class="col-md-2 offset-md-2 d-flex justify-content-center align-items-center">
+        <label for="amount">金額*:</label>
+      </div>
+      <div class="col-md-4 text-center" >
+        <input class="form-control" type="Number" name="amount" value="{{record.amount}}" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="row col-md-4 offset-md-4 d-flex justify-content-center align-items-center" style="padding: 0.5rem;">
+      <button class="btn btn-primary" type="submit">修改完成</button>
+    </div>
+  </div>
+</form>
