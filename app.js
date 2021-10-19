@@ -25,10 +25,6 @@ app.use(methodOverride('_method'));
 // routing
 app.use(routes);
 
-app.get('/testindex', (req, res) => {
-  res.render('testindex')
-});
-
 // Server listen
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}.`);
