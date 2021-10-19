@@ -9,7 +9,7 @@ AC 老爸私房錢(家庭記帳本) 專案
 ### 概覽:
 
 ![login image](補   )
-![login image](補   )
+![login image](補   ) 
 
 ### 開發環境及套件
 
@@ -22,6 +22,7 @@ AC 老爸私房錢(家庭記帳本) 專案
 | handlebars-helpers | 0.10.0   |
 | Nodemon            | 2.0.13   |
 | Mongoose           | 6.0.11   |
+| MongoDB           | 4.2.17    |
 
 ### 安裝方式:
 
