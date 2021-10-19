@@ -8,8 +8,8 @@ AC 老爸私房錢(家庭記帳本) 專案
 
 ### 概覽:
 
-![login image](補   )
-![login image](補   ) 
+![login image](https://github.com/andy2148deathedge/expense-tracker/blob/main/expense-tracker1.PNG)
+![login image](https://github.com/andy2148deathedge/expense-tracker/blob/main/expense-tracker2.PNG) 
 
 ### 開發環境及套件
 
