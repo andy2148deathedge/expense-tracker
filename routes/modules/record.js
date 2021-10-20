@@ -19,7 +19,8 @@ router.post('/', (req, res) => {
   // 拿到 new 表單內容存入資料庫 並且重定向至 '/'
   let newRecord = req.body;
   newRecord.amount = Number(newRecord.amount);
-  Record.create(newRecord);
+  Record.create(newRecord)
+    .catch(e => console.log(e));
   
   res.redirect('/');
 });
@@ -34,7 +35,7 @@ router.get('/:_id/edit', (req, res) => {
       .lean()
       .then(record => res.render('edit', {categories, record}))
       .catch(e => console.log(e)) )
-    .catch(e => console.log(e))
+    .catch(e => console.log(e));
 });
 
 router.put('/:id', (req, res) => {
