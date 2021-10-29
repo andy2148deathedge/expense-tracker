@@ -9,7 +9,7 @@ const hbsHelpers = require('handlebars-helpers');
 // import self made library
 const routes = require('./routes');
 
-// DB connect
+const usePassport = require('./config/passport');
 require('./config/mongoose');
 
 // express setting
@@ -31,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // routing
+usePassport(app);
 app.use(routes);
 
 // Server listen
