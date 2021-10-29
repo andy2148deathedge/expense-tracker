@@ -19,6 +19,8 @@ router.post('/', (req, res) => {
   // 拿到 new 表單內容存入資料庫 並且重定向至 '/'
   let newRecord = req.body;
   newRecord.amount = Number(newRecord.amount);
+  newRecord.userId = req.user._id;
+
   Record.create(newRecord)
     .catch(e => console.log(e));
   

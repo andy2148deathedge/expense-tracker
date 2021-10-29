@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
       const selectedCategory = req.query.category;
       if (selectedCategory) filter.category = selectedCategory;
       if (selectedCategory == 'all') filter = {};
+      filter.userId = req.user._id;
 
       Record.find( filter )
         .lean()
