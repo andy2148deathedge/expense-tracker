@@ -5,24 +5,17 @@ AC 老爸私房錢(家庭記帳本) 專案
 2. 首頁可以使用下拉是選單選擇支出類型，會馬上將同類型的支出項目給篩選呈現出來，總金額也會變為該類型總金額
 3. 可以選擇編輯按鈕進入該支出項目編輯頁面、或是刪除整筆支出項目
 4. 編輯頁面可以更改該項支出的內容及分類等
+5. 用戶可以以email進行註冊、登入、使用自己的專門記帳本
 
 ### 概覽:
 
+![login image](https://github.com/andy2148deathedge/expense-tracker/blob/main/expense-tracker3.PNG)
+![login image](https://github.com/andy2148deathedge/expense-tracker/blob/main/expense-tracker4.PNG)
 ![login image](https://github.com/andy2148deathedge/expense-tracker/blob/main/expense-tracker1.PNG)
 ![login image](https://github.com/andy2148deathedge/expense-tracker/blob/main/expense-tracker2.PNG) 
 
-### 開發環境及套件
-
-| Package            | Version  |
-| ------------------ | -------- |
-| Node.js            | v14.16.0 |
-| Npm                | 6.14.11  |
-| Express            | 4.17.1   |
-| Express-handlebars | 5.3.4    |
-| handlebars-helpers | 0.10.0   |
-| Nodemon            | 2.0.13   |
-| Mongoose           | 6.0.11   |
-| MongoDB           | 4.2.17    |
+### :link: heroku 連結
+https://fathomless-falls-63556.herokuapp.com/
 
 ### 安裝方式:
 
@@ -53,3 +46,11 @@ $ npm run dev
 ```
 
 5.瀏覽器瀏覽，前往: http://localhost:3000
+
+### 種子資料
+- 測試帳號資料
+
+| name            | email    | password |
+| --------------- | -------- |----------|
+| user1          | user1@example.com     | 123  |
+```

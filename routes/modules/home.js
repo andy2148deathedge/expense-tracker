@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
         .sort({ _id: 'asc' })
         .then((records) => {
           let totalAmount = 0;
-          records.forEach((record) => { totalAmount += record.amount; })
+          records.forEach((record) => { totalAmount += record.amount; });
           res.render('index', { records, categories, totalAmount, selectedCategory });
         })
         .catch(e => console(e));
