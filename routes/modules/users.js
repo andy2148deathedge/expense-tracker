@@ -24,14 +24,10 @@ router.post('/register', (req, res) => {
   const {name, email, password, confirmPassword} = req.body;
   const errors = [];
 
-  if (!name || !email || !password || !confirmPassword) {
-    errors.push({ message: '還有欄位沒填寫哦!' });
-  }
-  if (password !== confirmPassword) {
-    errors.push({ message: '密碼 & 確認密碼欄位不相符!'})
-  }
+  if (!name || !email || !password || !confirmPassword) errors.push({ message: '還有欄位沒填寫哦!' });
+  if (password !== confirmPassword) errors.push({ message: '密碼 & 確認密碼欄位不相符!'})
   if (errors.length) {
-    return res.render('register', { errors, name, email, password, confirmPassword })
+    return res.render('register', { errors, name, email, password, confirmPassword });
   }
 
   User.findOne({email})

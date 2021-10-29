@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const hbsHelpers = require('handlebars-helpers');
 const flash = require('connect-flash');
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+};
 
 // import self made library
 const routes = require('./routes');
@@ -15,14 +18,14 @@ require('./config/mongoose');
 
 // express setting
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const helpers = hbsHelpers();
 
 // setting & middleware
 app.engine('hbs', exphbs({ defaultLayout: "main", extname: "hbs", helpers: helpers}));
 app.set('view engine', 'hbs');
 app.use(session({
-  secret: 'ThisisMySecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }));
