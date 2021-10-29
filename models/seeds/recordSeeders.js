@@ -31,12 +31,3 @@ db.once('open', async () => {
     console.log(err);
   }
 });
-
-// 原版
-// db listener
-// db.once('open',  () => {
-//   Record.create(record.results)
-//   .then(() => {
-//     console.log('recordSeeders done.');
-//   })
-// });
