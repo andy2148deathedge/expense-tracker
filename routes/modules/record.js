@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
   res.redirect('/')
 })
 
-router.get('/:_id/edit', (req, res) => {
+router.get('/:_id/edit', (req, res, next) => {
   const id = req.params._id
 
   return Category.find()
@@ -35,8 +35,9 @@ router.get('/:_id/edit', (req, res) => {
     .then((categories) => Record.findById(id)
       .lean()
       .then(record => res.render('edit', { categories, record }))
-      .catch(e => console.log(e)))
-    .catch(e => console.log(e))
+      .catch(e => console.log(e))
+      .then(() => setTimeout(() => res.redirect('/'), 5000))) // 找不到該路由的狀況下 5 秒後重導回首頁或者可以跳錯誤訊息給使用者再重導向之類的處理
+    // .catch(e => console.log(e)) 修正註解: 多餘的 .catch()
 })
 
 router.put('/:id', (req, res) => {
